@@ -17,6 +17,8 @@ try:
 
 	file = driver.find_element_by_css_selector('#file')
 	current_dir = os.path.abspath(os.path.dirname(__file__))    
+	print(current_dir)
+	print(os.path.abspath(os.path.dirname(__file__)))
 	file_path = os.path.join(current_dir, 'text.txt')   
 	file.send_keys(file_path)
 
