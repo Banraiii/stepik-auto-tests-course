@@ -1,0 +1,17 @@
+link = 'http://selenium1py.pythonanywhere.com/'
+
+
+def go_to_login_page(driver):
+	login_link = browser.find_element_by_css_selector("#login_link")
+    login_link.click()
+
+def test_guest_can_go_to_login_page(driver):
+	driver.get(link)
+	go_to_login_page(driver)
+
+def test_add_to_cart(driver):
+	page = ProductPage(url="", driver)	# инициализируем объект Page Object
+	page.open()							# открываем страницу в браузере
+	page.should_be_add_to_cart_button()	# проверяем что есть кнопка добавления в корзину
+	page.add_product_to_cart()			# жмем кнопку добавить в корзину 
+	page.should_be_success_message()	# проверяем что есть сообщение с нужным текстом
